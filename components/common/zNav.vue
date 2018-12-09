@@ -29,21 +29,25 @@
   }
 </script>
 
-<style >
+<style type="text/css" lang="less">
 .v-nav {
-  height: 180px;
+  height: 80px;
   width: 100%;
   background: #ffffff;
   box-shadow: rgba(29, 29, 31, 0.07) 0px 10px 60px 0px;
   .nav_ul{
     margin: 0 auto;
-    .nav-li{
+    height: 100%;
+    .nav_li{
       float: left;
       font-size: 24px;
       color: #47494e;
       height: 100%;
+      line-height: 80px;
       padding: 0 20px;
       display: inline-block;
+      margin: 0 auto ;
+      cursor: pointer;
     }
     .nav_active{
       color: darkcyan;

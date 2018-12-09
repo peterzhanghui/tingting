@@ -44,7 +44,25 @@ module.exports = {
     // Or if you have custom bootstrap CSS...
     // ['bootstrap-vue/nuxt', { css: true }],
   ],
+  rules: [
+    // ... other rules omitted
 
+    // this will apply to both plain `.scss` files
+    // AND `<style lang="scss">` blocks in `.vue` files
+    // {
+    //   test: /\.css$/,
+    //   use: [
+    //     'sass-loader',
+    //     'css-loader'
+    //   ]
+    // },
+    {
+      test: /\.less$/,
+      use: [
+        'style-loader!css-loader!less-loader'
+      ]
+    }
+  ],
   /*
   ** Build configuration
   */
@@ -52,8 +70,7 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-    extend(config, ctx) {
-
-    }
+    // extend(config, ctx) {
+    // }
   }
 }
