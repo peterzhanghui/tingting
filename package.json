@@ -20,11 +20,11 @@
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.11",
     "cross-env": "^5.2.0",
-    "less": "^3.9.0",
-    "less-loader": "^4.1.0",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.11.0",
+    "sass-loader": "^7.1.0"
   }
 }
