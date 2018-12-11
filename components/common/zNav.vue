@@ -15,21 +15,28 @@
     </div>
     <div class="phone">
       <header class="v-nav" v-if="phoneNav">
-        <ul class="nav_ul">
-          <li
-            v-for="item in list"
-            v-text="item.name"
-            :class="{'nav_li': true, 'nav_active': item.id == active}"
-            @click="active = item.id; $router.push(item.path);phoneNav = false"
-          >
-          </li>
-        </ul>
+        <transition name="slide-fade">
+          <ul class="nav_ul">
+            <li
+              v-for="item in list"
+              v-text="item.name"
+              :class="{'nav_li': true, 'nav_active': item.id == active}"
+              @click="active = item.id; $router.push(item.path);phoneNav = false"
+            >
+            </li>
+          </ul>
+        </transition>
       </header>
-      <div class="nav_btn"
-           v-if="!phoneNav"
-           @click="phoneNav = true"
-      >
-      </div>
+
+      <transition name="slide-fade">
+        <div class="nav_btn"
+             v-if="!phoneNav"
+             @click="phoneNav = true"
+        >
+        </div>
+      </transition>
+
+
     </div>
   </div>
 
@@ -56,10 +63,14 @@
 
 <style type="text/css" lang="scss">
 
-  @media screen  and (max-width: 480px) {
-    .pc{display: none}
-    .phone{display: block}
-    .nav_btn{
+  @media screen and (max-width: 480px) {
+    .pc {
+      display: none
+    }
+    .phone {
+      display: block
+    }
+    .nav_btn {
       position: fixed;
       right: 10px;
       top: 50%;
@@ -67,13 +78,14 @@
       height: 50px;
       border-radius: 25px;
       background: url("../../static/t.png"), no-repeat;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
     .v-nav {
       height: 100vh;
       width: 100vW;
       background: rgba(0, 0, 0, 0.4);
       position: relative;
-      .nav_ul{
+      .nav_ul {
         /*margin: 0 auto;*/
         height: 100%;
         padding-top: 20vh;
@@ -81,7 +93,7 @@
         background: #fff;
         position: absolute;
         right: 0;
-        .nav_li{
+        .nav_li {
           font-size: 18px;
           color: #47494e;
           height: 54px;
@@ -90,24 +102,42 @@
           font-weight: bold;
           text-align: center;
         }
-        .nav_active{
+        .nav_active {
           color: darkcyan;
         }
       }
     }
+    /*动画*/
+    .slide-fade-enter-active {
+      transition: all .3s ease;
+    }
+    .slide-fade-leave-active {
+      transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+    .slide-fade-enter, .slide-fade-leave-to
+      /* .slide-fade-leave-active for below version 2.1.8 */
+    {
+      transform: translateX(10px);
+      opacity: 0;
+    }
   }
-  @media screen  and (min-width: 480px) {
-    .pc{display: block}
-    .phone{display: none}
+
+  @media screen and (min-width: 480px) {
+    .pc {
+      display: block
+    }
+    .phone {
+      display: none
+    }
     .v-nav {
       height: 80px;
       width: 100%;
       background: #ffffff;
       box-shadow: rgba(29, 29, 31, 0.07) 0px 10px 60px 0px;
-      .nav_ul{
+      .nav_ul {
         margin: 0 auto;
         height: 100%;
-        .nav_li{
+        .nav_li {
           float: left;
           font-size: 24px;
           color: #47494e;
@@ -115,11 +145,11 @@
           line-height: 80px;
           padding: 0 20px;
           display: inline-block;
-          margin: 0 auto ;
+          margin: 0 auto;
           cursor: pointer;
           letter-spacing: 6px;
         }
-        .nav_active{
+        .nav_active {
           color: darkcyan;
         }
       }
