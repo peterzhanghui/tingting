@@ -1,8 +1,8 @@
 {
-  "name": "tt",
+  "name": "jiatt",
   "version": "1.0.0",
-  "description": "张辉的个人网站",
-  "keywords": "张辉的个人网站,技术博客,张辉,jiatt,jiatingting",
+  "description": "张辉的个人网站,前端技术分享,技术尝试",
+  "keywords": "张辉的个人网站,前端技术分享,技术博客,张辉,jiatt,jiatingting",
   "author": "zhanghui",
   "private": true,
   "config": {
