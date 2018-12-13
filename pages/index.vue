@@ -42,7 +42,7 @@
           order: 1;
           width: 100%;
           height: 70vh;
-          background: url("../static/banner.jpg") no-repeat;
+          background: url("http://img.jiatt.top/banner.jpg") no-repeat;
           background-size: cover;
         }
         .content{
@@ -77,7 +77,7 @@
           flex: 1;
           width: 76%;
           height: 70vh;
-          background: url("../static/banner.jpg") no-repeat;
+          background: url("http://img.jiatt.top/banner.jpg?imageMogr2/thumbnail/640x640/format/webp/blur/1x0/quality/75|imageslim") no-repeat;
           background-size: cover;
         }
         .content{

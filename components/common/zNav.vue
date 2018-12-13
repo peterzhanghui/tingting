@@ -14,7 +14,7 @@
       </header>
     </div>
     <div class="phone">
-      <header class="v-nav" v-if="phoneNav">
+      <header class="v-nav" v-if="phoneNav" @click="phoneNav = false">
         <transition name="slide-fade">
           <ul class="nav_ul">
             <li
@@ -61,7 +61,7 @@
   }
 </script>
 
-<style type="text/css" lang="scss">
+<style type="text/css" lang="scss" scoped>
 
   @media screen and (max-width: 480px) {
     .pc {

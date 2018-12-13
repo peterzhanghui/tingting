@@ -5,16 +5,19 @@
       :activeId="activeId"
     />
     <nuxt/>
+    <z-footer/>
   </div>
 
 </template>
 
 <script>
   import zNav from '~/components/common/zNav.vue'
+  import zFooter from '~/components/common/zFooter.vue'
 
   export default {
     components: {
-      zNav
+      zNav,
+      zFooter
     },
     data() {
       return {
