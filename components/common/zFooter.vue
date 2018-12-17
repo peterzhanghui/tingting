@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="v-nav"></div>
+    <!--<div class="v-nav"></div>-->
     <p class="copyRight">浙ICP备18051229号-1</p>
   </div>
 

@@ -10,3 +10,76 @@
   transform: translateX(10px);
   opacity: 0;
 }
+
+/*动画*/
+.slide-up-enter-active {
+  transition: all 1.3s ease;
+}
+.slide-up-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-up-enter, .slide-up-leave-to
+{
+  transform: translateY(10px);
+  opacity: 0;
+}
+/*reset css 重置默认样式 */
+html {
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+  Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ul{
+  list-style: none;
+}
+p{
+  padding: 6px;
+}
+
+
+.fleft{
+  float: left;
+}
+
+.fright{
+  float: right;
+}
+
+.clear {
+  zoom: 1;
+}
+
+.clear:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+/*字体颜色*/
+.color9{color: #999}
+.color6{color: #666}
+.color3{color: #333}
+.green{color: #40BF88;}
+.yellow{color: #FD8C37;}
+.blue{color: #2A7FF3;}
+.red{color: #FE5D54;}
+/*背景颜色*/
+.green-bg{background: #40BF88;}
+.yellow-bg{background: #FD8C37;}
+.blue-bg{background: #2A7FF3;}
+.red-bg{background: #FE5D54;}
+
+.pointer{cursor:pointer}

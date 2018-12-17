@@ -2,6 +2,7 @@ const pkg = require('./package')
 
 module.exports = {
   mode: 'universal',
+  transition: 'slide-up',
 
   /*
   ** Headers of the page
@@ -35,15 +36,29 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/axios'
   ],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
-    // Or if you have custom bootstrap CSS...
-    // ['bootstrap-vue/nuxt', { css: true }],
+    // Doc: https://github.com/nuxt-community/axios-module#usage
+    '@nuxtjs/axios'
   ],
+  /*
+  ** Axios module configuration
+  */
+  axios: {
+    proxy: true,
+    prefix: '/api/',
+    // credentials: true
+    // See https://github.com/nuxt-community/axios-module#options
+  },
+
+  proxy: {
+    '/api/': 'https://www.apiopen.top'
+  },
   /*
   ** Build configuration
   */

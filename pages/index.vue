@@ -7,9 +7,6 @@
         <div class="banner"></div>
       </transition>
     </div>
-    <div>
-      <!--<img src='https://open.saintic.com/api/bingPic/' />-->
-    </div>
   </section>
 </template>
 
@@ -29,8 +26,6 @@
 <style type="text/css" lang="scss">
   @media screen and (max-width: 480px){
     .container {
-      width: 100%;
-      min-height: 90vh;
       .banner_box{
         padding: 20px;
         display: flex;
@@ -77,7 +72,7 @@
           flex: 1;
           width: 76%;
           height: 70vh;
-          background: url("http://img.jiatt.top/banner.jpg?imageMogr2/thumbnail/640x640/format/webp/blur/1x0/quality/75|imageslim") no-repeat;
+          background: url("http://img.jiatt.top/banner.jpg") no-repeat;
           background-size: cover;
         }
         .content{

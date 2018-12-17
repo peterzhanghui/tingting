@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="pc">
+    <div class="pc clear">
       <header class="v-nav">
         <ul class="nav_ul">
           <li
@@ -13,7 +13,7 @@
         </ul>
       </header>
     </div>
-    <div class="phone">
+    <div class="phone clear">
       <header class="v-nav" v-if="phoneNav" @click="phoneNav = false">
         <transition name="slide-fade">
           <ul class="nav_ul">
@@ -64,12 +64,6 @@
 <style type="text/css" lang="scss" scoped>
 
   @media screen and (max-width: 480px) {
-    .pc {
-      display: none
-    }
-    .phone {
-      display: block
-    }
     .nav_btn {
       position: fixed;
       right: 10px;
@@ -84,10 +78,11 @@
       height: 100vh;
       width: 100vW;
       background: rgba(0, 0, 0, 0.4);
-      position: relative;
+      position: fixed;
+      top: 0;
       .nav_ul {
         /*margin: 0 auto;*/
-        height: 100%;
+        height: 100vh;
         padding-top: 20vh;
         width: 30vw;
         background: #fff;
@@ -107,27 +102,9 @@
         }
       }
     }
-    /*动画*/
-    .slide-fade-enter-active {
-      transition: all .3s ease;
-    }
-    .slide-fade-leave-active {
-      transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-    }
-    .slide-fade-enter, .slide-fade-leave-to
-    {
-      transform: translateX(10px);
-      opacity: 0;
-    }
   }
 
   @media screen and (min-width: 480px) {
-    .pc {
-      display: block
-    }
-    .phone {
-      display: none
-    }
     .v-nav {
       height: 80px;
       width: 100%;

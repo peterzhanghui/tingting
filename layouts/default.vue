@@ -6,6 +6,7 @@
     />
     <nuxt/>
     <z-footer/>
+    <message :message="$store.state.message"></message>
   </div>
 
 </template>
@@ -13,11 +14,13 @@
 <script>
   import zNav from '~/components/common/zNav.vue'
   import zFooter from '~/components/common/zFooter.vue'
+  import message from '~/components/common/message.vue'
 
   export default {
     components: {
       zNav,
-      zFooter
+      zFooter,
+      message
     },
     data() {
       return {
@@ -52,27 +55,25 @@
 
 
 <style>
-   /*reset css 重置默认样式 */
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-ul{
-  list-style: none;
-}
+  @media screen and (max-width: 480px){
+    .pc {
+      display: none
+    }
+    .phone {
+      display: block
+    }
+  }
+  @media screen and (min-width: 480px){
+    .pc {
+      display: block
+    }
+    .phone {
+      display: none
+    }
+  }
+   .container {
+     width: 100%;
+     min-height: 90vh;
+     background: #f9f9f9;
+   }
 </style>
