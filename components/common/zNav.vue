@@ -57,6 +57,14 @@
         active: this.activeId || 1,
         phoneNav: false
       }
+    },
+    created() {
+//        页面重新加载，通过路由获取组件选中状态
+        this.list.map((item, index) => {
+          if (item.path == this.$route.path) {
+               this.active = item.id
+          }
+        })
     }
   }
 </script>

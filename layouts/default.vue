@@ -32,16 +32,16 @@
             path: '/'
           },{
             id: 2,
-            name: '文章',
-            path: '/blog'
+            name: '开心',
+            path: '/fun'
           },{
             id: 3,
             name: '生活',
             path: '/life'
           },{
             id: 4,
-            name: '关于',
-            path: '/about'
+            name: '博客',
+            path: '/blog'
           },{
             id: 5,
             name: '联系',
