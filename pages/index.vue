@@ -83,7 +83,7 @@
           background: #fff;
           color: black;
           box-shadow: 0.5rem 0 4rem -1rem rgba(0,0,0,.35);
-          z-index: 10;
+          z-index: 1;
           text-align: center;
           line-height: 40px;
           font-size: 24px;
