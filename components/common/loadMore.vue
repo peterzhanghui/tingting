@@ -88,7 +88,7 @@ export default {
         scrollTop = node.scrollTop, // 滚动条距离顶部高度
         scrollHeight = node.scrollHeight, // 滚动内容高度
         seeHeight = node.clientHeight, // 可见区域高度
-        status = scrollTop >= scrollHeight - seeHeight - 50 // 滚动条是否见底
+        status = scrollTop >= scrollHeight - seeHeight - 50; // 滚动条是否见底
 
       // 阻止浏览器默认事件
       e.preventDefault()
@@ -101,6 +101,7 @@ export default {
           this.$emit('callback', 'scroll')
         }, 100)
       }
+//      debugger
     },
     handleTouchStart(e) {
       // 开始
@@ -167,6 +168,7 @@ export default {
     .scroll-container {
       flex: 1;
       width: 100%;
+      height: 70vh;
       overflow-y: auto;
       over-flow: touch;
       -webkit-overflow-scrolling: touch;

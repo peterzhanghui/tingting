@@ -42,6 +42,7 @@ export default {
   },
   methods: {
     getList (type) {
+      this.scrollStatus.request = true;
       this.$axios.get("/satinApi", this.apidata).then(res=>{
         if (res.data.code == 200) {
           if (type == 'scroll') {
@@ -49,6 +50,7 @@ export default {
           } else {
             this.dataList = res.data.data
           }
+          this.scrollStatus.request = false;
         } else {
           this.$store.commit('message', {text: '数据有误'})
         }
