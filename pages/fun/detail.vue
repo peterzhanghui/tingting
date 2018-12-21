@@ -5,13 +5,11 @@
         <ul class="clear" slot="scrollList">
           <li class="li_item" v-for="item in dataList">
             <p>
-              <img-see v-if="$store.state.isPc" class='profile_image' :src="item.profile_image"></img-see>
-              <img v-else class="profile_image" :src="item.profile_image" alt="">
+              <img class="profile_image" :src="item.profile_image" alt="">
               <span class="name color9" v-text="item.name"></span>
             </p>
             <p v-text="item.text"></p>
-            <img-see v-if="$store.state.isPc" class='image' :src="item.image0"></img-see>
-            <img v-else class="image" :src="item.image0" alt="">
+            <img class="image" :src="item.image0" alt="">
           </li>
         </ul>
       </load-more>
@@ -21,10 +19,9 @@
 
 <script>
 import loadMore from '~/components/common/loadMor.vue'
-import imgSee from '~/components/imgSee.vue'
 export default {
   components: {
-    loadMore,imgSee
+    loadMore
   },
   data() {
     return {

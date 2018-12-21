@@ -13,6 +13,7 @@ import mutations from './mutations'
  * @property {String} img_after oss 阿里云图片处理后缀
  */
 let state = {
+  isPc: true, // 默认是pc
   login: {},
   dialog: {},
   message: {},

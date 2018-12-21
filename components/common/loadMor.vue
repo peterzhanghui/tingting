@@ -3,7 +3,7 @@
     <div
       ref="touchNode"
       :class="{unset: scrollStatus === 1 || scrollStatus === 2}"
-      :style="{ transform: scrollStatus === 5 ? 'unset' : `translate3d(0, ${diff}px, 0)` }"
+      :style="{ transform: scrollStatus === 5 ? 'unset' : `translateY(${diff}px)` }"
       class="wrapper g-c-center"
     >
       <div class="top-text g-r-center">
@@ -70,21 +70,21 @@ export default {
   mounted() {
     this.fontSizeRatio = document.documentElement.clientWidth / 7.5
     this.init()
+    this.scrollStatus = 3
   },
   methods: {
     init() {
-      // 初始化
-      // this.$refs.touchNode.addEventListener(
-      //   'touchstart',
-      //   this.handleTouchStart
-      // )
-      // this.$refs.touchNode.addEventListener('touchmove', this.handleTouchMove)
-      // this.$refs.touchNode.addEventListener('touchend', this.handleTouchEnd)
-      this.$refs.scrollNode.addEventListener('scroll', this.handleScroll)
+      if(this.$store.state.isPc) {
+        document.addEventListener('scroll', this.handleScroll, false);
+      } else {
+        document.addEventListener('touchstart', this.handleTouchStart, false);
+        document.addEventListener('touchmove', this.handleTouchMove, false);
+        document.addEventListener('touchend', this.handleTouchEnd, false);
+      }
     },
     handleScroll(e) {
       // 滚动侦听
-      let node = this.$refs.scrollNode, // 滚动节点
+      let node = document.documentElement, // 滚动节点
         scrollTop = node.scrollTop, // 滚动条距离顶部高度
         scrollHeight = node.scrollHeight, // 滚动内容高度
         seeHeight = node.clientHeight, // 可见区域高度
@@ -106,18 +106,17 @@ export default {
     handleTouchStart(e) {
       // 开始
       this.startY = e.touches[0].clientY
-      console.log(this.startY)
     },
     handleTouchMove(e) {
       // 移动
       let clientY = e.touches[0].clientY,
-        scrollTop = this.$refs.touchNode.scrollTop || 0;
-      console.log(clientY, scrollTop)
+        scrollTop = document.documentElement.scrollTop || 0;
       if (
         clientY > this.startY &&
         this.scrollStatus !== 3 &&
         this.scrollStatus !== 4
       ) {
+        console.log(scrollTop)
         if (scrollTop === 0) {
           this.scrollStatus = 1
           let moveY = clientY - this.startY
@@ -150,7 +149,6 @@ export default {
 </script>
 <style lang="scss">
 #scroll-load {
-  height: 100vh;
   .wrapper {
     height: 100%;
     transition: 300ms;
@@ -162,16 +160,13 @@ export default {
       position: relative;
       height: 100px;
       margin-top: -100px;
-      line-height: 100px;
+      padding-top: 40px;
+      line-height: 60px;
       font-size: 16px;
     }
     .scroll-container {
       flex: 1;
       width: 100%;
-      height: 70vh;
-      overflow-y: auto;
-      over-flow: touch;
-      -webkit-overflow-scrolling: touch;
     }
     .bottom-text {
       flex: unset;

@@ -39,6 +39,13 @@ const mutations = {
    */
   setTitle(state, text) {
     state.title = text
+  },
+  /**
+   * 终端判断是pc还是手机
+   * @param {boolean} text - 是否是pc端
+   */
+  setPc(state, text) {
+    state.isPc = text
   }
 }
 
