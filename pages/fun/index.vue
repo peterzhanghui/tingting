@@ -4,14 +4,15 @@
       <load-more :request-status="scrollStatus" @callback="scrollCallback">
         <ul class="clear" slot="scrollList">
           <li class="li_item" v-for="item in dataList">
-            <p>
-              <img-see v-if="$store.state.isPc" class='profile_image' :src="item.profile_image"></img-see>
-              <img v-else class="profile_image" :src="item.profile_image" alt="">
-              <span class="name color9" v-text="item.name"></span>
-            </p>
-            <p v-text="item.text"></p>
-            <img-see v-if="$store.state.isPc" class='image' :src="item.image0"></img-see>
-            <img v-else class="image" :src="item.image0" alt="">
+              <p>
+                <img class="profile_image" :src="item.header" alt="">
+                <span class="name color9" v-text="item.name"></span>
+              </p>
+              <p v-text="item.text"></p>
+              <!--pc跳详情看大图，mobile不跳-->
+              <img v-if="item.type == 'image'" @click="$store.state.isPc ? $router.push({name: 'fun-detail', params : {src: item.images}}) : '';" class="image" :src="item.images" alt="">
+            <!--<video ref="item.sid" v-else-if="item.type == 'video'" class="video" :src="item.video" controls @click="videoPlay(item.sid)"></video>-->
+            <video v-else-if="item.type == 'video'" class="video" :src="item.video" controls></video>
           </li>
         </ul>
       </load-more>
@@ -21,10 +22,9 @@
 
 <script>
 import loadMore from '~/components/common/loadMor.vue'
-import imgSee from '~/components/imgSee.vue'
 export default {
   components: {
-    loadMore,imgSee
+    loadMore
   },
   data() {
     return {
@@ -46,12 +46,12 @@ export default {
   methods: {
     getList (type) {
       this.scrollStatus.request = true;
-      this.$axios.get("/satinApi", {params: this.apidata}).then(res=>{
+      this.$axios.get("/getJoke", {params: this.apidata}).then(res=>{
         if (res.data.code == 200) {
           if (type == 'scroll') {
-            this.dataList = [...this.dataList, ...res.data.data]
+            this.dataList = [...this.dataList, ...res.data.result]
           } else {
-            this.dataList = res.data.data
+            this.dataList = res.data.result
           }
           this.scrollStatus.request = false;
         } else {
@@ -71,6 +71,11 @@ export default {
         this.apidata.page = 1
         this.getList('down')
       }
+    },
+    videoPlay(id) {
+      console.log(this.$refs)
+      console.log(this.$refs[id])
+      this.$refs[id].play()
     }
   }
 }
@@ -100,7 +105,7 @@ export default {
       height: 40px;
       border-radius: 20px;
     }
-    .image{
+    .image, .video{
       margin-top: 20px;
       width: 100%;
     }

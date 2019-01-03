@@ -1,7 +1,7 @@
 <template>
     <div class="img-box">
         <div class="img"
-             @click="bigShow = true; changeOverflow('hidden')"
+             @click=" changeOverflow('hidden'); bigShow = true;"
              :style="imgStyle"
              @mouseenter="tipsShow = true"
              @mouseleave="tipsShow=false">
@@ -55,7 +55,7 @@
             background: rgba(00, 00, 00, .5);
             p{
                 position: absolute;
-                top: 40%;
+                top: 60px;
                 width: 100%;
                 text-align: center;
                 font-size: 12px;
