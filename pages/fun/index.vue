@@ -10,7 +10,7 @@
               </p>
               <p v-text="item.text"></p>
               <!--pc跳详情看大图，mobile不跳-->
-              <img v-if="item.type == 'image'" @click="$store.state.isPc ? $router.push({name: 'fun-detail', params : {src: item.images}}) : '';" class="image" :src="item.images" alt="">
+              <img v-if="item.type == 'image' || item.type == 'gif'" @click="$store.state.isPc ? $router.push({name: 'fun-detail', query : {sid: item.sid}}) : '';" class="image" :src="item.images" alt="">
             <!--<video ref="item.sid" v-else-if="item.type == 'video'" class="video" :src="item.video" controls @click="videoPlay(item.sid)"></video>-->
             <video v-else-if="item.type == 'video'" class="video" :src="item.video" controls></video>
           </li>
@@ -82,14 +82,9 @@ export default {
 </script>
 
 <style type="text/css" lang="scss" scoped>
-  @media screen and (max-width: 480px){
-    .li_item{
-      /*width: 100%;*/
-    }
-  }
   @media screen and (min-width: 480px){
     .li_item{
-      height: 300px;
+      height: 320px;
       width: 280px;
       float: left;
     }
@@ -105,9 +100,14 @@ export default {
       height: 40px;
       border-radius: 20px;
     }
-    .image, .video{
+    .image{
       margin-top: 20px;
       width: 100%;
+    }
+    .video{
+      margin-top: 20px;
+      width: 100%;
+      height: 168px;
     }
   }
 
