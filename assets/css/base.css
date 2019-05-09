@@ -92,11 +92,13 @@ p{
   align-items: center;
   justify-content: center;
 }
-
+/*垂直方向居中*/
 .g-r-center {
   display: flex;
   display: -webkit-flex;
-  flex: 1;
+  /*flex: 1;*/
+  /*垂直居中*/
   align-items: center;
+  /*主轴上的对齐方式*/
   justify-content: center;
 }
