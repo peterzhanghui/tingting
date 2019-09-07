@@ -49,6 +49,13 @@ ul{
 p{
   padding: 6px;
 }
+a{
+  text-decoration:none;
+  color: #333;
+}
+a:hover {
+  color: darkcyan;
+}
 
 
 .fleft{

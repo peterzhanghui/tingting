@@ -73,8 +73,6 @@ export default {
       }
     },
     videoPlay(id) {
-      console.log(this.$refs)
-      console.log(this.$refs[id])
       this.$refs[id].play()
     }
   }

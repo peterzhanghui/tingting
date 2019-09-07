@@ -2,7 +2,9 @@
   <section class="container">
     <div class="banner_box">
 
-      <div class="content"><p>欲穷千里目</p><p>更上一层楼</p></div>
+      <div class="content"><p>欲穷千里目</p><p>更上一层楼</p>
+<!--        <a href="/love">nihao</a>-->
+      </div>
       <transition name="slide-fade">
         <div class="banner"></div>
       </transition>

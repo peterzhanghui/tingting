@@ -23,11 +23,13 @@ export default ({ app: { router }, store }) => {
   /*
    ** 每次路由变更时进行pv统计
    */
-  router.afterEach((to, from) => {
+  router.afterEach((to) => {
     /*
      ** 告诉 GA 增加一个 PV
      */
-    ga('set', 'page', to.fullPath)
-    ga('send', 'pageview')
+    if (window.ga) {
+      window.ga('set', 'page', to.fullPath);
+      window.ga('send', 'pageview');
+    }
   })
 }

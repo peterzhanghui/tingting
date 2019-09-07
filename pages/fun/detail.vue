@@ -25,8 +25,8 @@ export default {
   },
   created() {
     // let apiData = {sid: this.$route.params.sid};
-    this.$axios.get("/s", {params: {sid: this.$route.query.sid}}).then(res=>{
-    // this.$axios.get("/getSingleJoke?sid=" + this.$route.params.sid).then(res=>{
+    // this.$axios.get("/s", {params: {sid: this.$route.query.sid}}).then(res=>{
+    this.$axios.get("/getSingleJoke?sid=" + this.$route.params.sid).then(res=>{
       if (res.data.code == 200) {
         this.detailData = res.data.result
       } else {

@@ -1,16 +1,16 @@
 <template>
   <section class="container ">
-    <!--<div class="life"></div>-->
-    <!--<div class="life life1" style=""></div>-->
-    <!--<div class="life life2"></div>-->
-    <div class="box g-r-center">
-      <span class="content">
-        中文厉害$￥
-      </span>
-
-      <img class="header img " src="~/assets/img/header.png" alt="">
-      <img class="right img" src="~/assets/img/right.png" alt="">
+    <div>
+      <h1>life</h1>
     </div>
+<!--    <div class="box g-r-center">-->
+<!--      <span class="content">-->
+<!--        中文厉害$￥-->
+<!--      </span>-->
+
+<!--      <img class="header img " src="~/assets/img/header.png" alt="">-->
+<!--      <img class="right img" src="~/assets/img/right.png" alt="">-->
+<!--    </div>-->
   </section>
 </template>
 
@@ -23,7 +23,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .box {
     line-height: 120px;
     height: 120px;
@@ -50,23 +50,5 @@
 
   .container {
     margin: 0 auto;
-  }
-
-  .life {
-    height: 200px;
-    width: 200px;
-    background: #2A7FF3;
-    margin: 0 auto;
-  }
-
-  .life1 {
-    background: #40BF88;
-    width: 300px;
-    transition: 300ms;
-    transform: translateY(20px);
-  }
-
-  .life2 {
-    background: #FD8C37;
   }
 </style>
