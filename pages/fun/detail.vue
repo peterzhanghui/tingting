@@ -23,16 +23,15 @@ export default {
       }
     }
   },
-  created() {
-    // let apiData = {sid: this.$route.params.sid};
-    // this.$axios.get("/s", {params: {sid: this.$route.query.sid}}).then(res=>{
-    this.$axios.get("/getSingleJoke?sid=" + this.$route.params.sid).then(res=>{
-      if (res.data.code == 200) {
-        this.detailData = res.data.result
-      } else {
-        this.$store.commit('message', {text: '数据有误'})
-      }
-    })
+  asyncData ({ $axios, route}) {
+
+    return $axios.get("/getSingleJoke", {params: {
+        sid: route.query.sid
+      }}).then(res=>{
+        if (res.data.code == 200) {
+          return {detailData: res.data.result}
+        }
+      })
   }
 }
 </script>

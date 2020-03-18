@@ -40,8 +40,19 @@ export default {
       },
     }
   },
+  // 首屏加载后的下拉刷新， 分页如何做seo处理
+  asyncData ({ $axios }) {//请求
+    return $axios.get("/getJoke", {params: {
+        type: 1,
+        page: 1
+      }}).then(res=>{
+        if (res.data.code == 200) {
+          return {dataList: res.data.result}
+        }
+      })
+  },
   created () {
-    this.getList('down')
+    // this.getList('down')
   },
   methods: {
     getList (type) {
