@@ -94,11 +94,13 @@ export default {
       e.preventDefault()
       e.stopPropagation()
       clearTimeout(timer)
-
+      console.log(status , !this.requestStatus.request);
       if (status && !this.requestStatus.request) {
+
         this.scrollStatus = 5
+        let _this = this
         timer = setTimeout(() => {
-          this.$emit('callback', 'scroll')
+          _this.$emit('callback', 'scroll')
         }, 100)
       }
 //      debugger

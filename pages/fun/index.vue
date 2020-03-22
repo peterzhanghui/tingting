@@ -3,7 +3,7 @@
     <div class="box">
       <load-more :request-status="scrollStatus" @callback="scrollCallback">
         <ul class="clear" slot="scrollList">
-          <li class="li_item" v-for="item in dataList">
+          <li class="li_item" v-for="item in dataList" :key="item.sid">
               <p>
                 <img class="profile_image" :src="item.header" alt="">
                 <span class="name color9" v-text="item.name"></span>
@@ -35,7 +35,7 @@ export default {
       dataList: [],
       loadStatus: 1, // 加载状态  1: 未请求 2: 已请求  3: 加载更多
       scrollStatus: {
-        request: true,
+        request: false,
         noMore: false
       },
     }
@@ -47,6 +47,7 @@ export default {
         page: 1
       }}).then(res=>{
         if (res.data.code == 200) {
+          console.log(res.data.result);
           return {dataList: res.data.result}
         }
       })
@@ -75,6 +76,7 @@ export default {
      * @param {type}    类型  scroll：加载更多  down：下拉刷新
      */
     scrollCallback(type) {
+      console.log(type);
       if (type === 'scroll') {
         this.apidata.page++
         this.getList('scroll')
