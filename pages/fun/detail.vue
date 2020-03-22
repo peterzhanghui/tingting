@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <div class="box">
+    <div class="box" v-if='detailData'>
       <p>
         <img class="profile_image" :src="detailData.header" alt="">
         <span class="name color9" v-text="detailData.name"></span>
