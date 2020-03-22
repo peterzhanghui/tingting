@@ -94,9 +94,7 @@ export default {
       e.preventDefault()
       e.stopPropagation()
       clearTimeout(timer)
-      console.log(status , !this.requestStatus.request);
       if (status && !this.requestStatus.request) {
-
         this.scrollStatus = 5
         let _this = this
         timer = setTimeout(() => {
@@ -118,7 +116,6 @@ export default {
         this.scrollStatus !== 3 &&
         this.scrollStatus !== 4
       ) {
-        console.log(scrollTop)
         if (scrollTop === 0) {
           this.scrollStatus = 1
           let moveY = clientY - this.startY

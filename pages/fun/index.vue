@@ -47,7 +47,6 @@ export default {
         page: 1
       }}).then(res=>{
         if (res.data.code == 200) {
-          console.log(res.data.result);
           return {dataList: res.data.result}
         }
       })
@@ -76,7 +75,6 @@ export default {
      * @param {type}    类型  scroll：加载更多  down：下拉刷新
      */
     scrollCallback(type) {
-      console.log(type);
       if (type === 'scroll') {
         this.apidata.page++
         this.getList('scroll')
