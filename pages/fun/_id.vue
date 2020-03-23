@@ -24,9 +24,8 @@ export default {
     }
   },
   asyncData ({ $axios, route}) {
-
     return $axios.get("/getSingleJoke", {params: {
-        sid: route.query.sid
+        sid: route.params.id
       }}).then(res=>{
         if (res.data.code == 200) {
           return {detailData: res.data.result}

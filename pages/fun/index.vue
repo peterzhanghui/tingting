@@ -10,7 +10,7 @@
               </p>
               <p v-text="item.text"></p>
               <!--pc跳详情看大图，mobile不跳-->
-              <img v-if="item.type == 'image' || item.type == 'gif'" @click="$store.state.isPc ? $router.push({name: 'fun-detail', query : {sid: item.sid}}) : '';" class="image" :src="item.images" alt="">
+              <img v-if="item.type == 'image' || item.type == 'gif'" @click="$store.state.isPc ? $router.push({path: '/fun/'+item.sid}) : '';" class="image" :src="item.images" alt="">
             <!--<video ref="item.sid" v-else-if="item.type == 'video'" class="video" :src="item.video" controls @click="videoPlay(item.sid)"></video>-->
             <video v-else-if="item.type == 'video'" class="video" :src="item.video" controls></video>
           </li>
