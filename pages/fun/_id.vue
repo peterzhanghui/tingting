@@ -20,7 +20,19 @@ export default {
   data() {
     return {
       detailData: {
-      }
+      },
+      title: '搞笑趣图-前端技术分享',
+      keywords: '搞笑趣图-前端技术分享',
+      desc: '记录自己前端开发中遇到的问题，帮助自己成长'
+    }
+  },
+  head () {
+    return {
+      title: this.title,
+      meta: [
+        { hid: 'description', name: 'description', content: this.desc },
+        { hid: 'keywords', name: 'keywords', content: this.keywords },
+      ]
     }
   },
   asyncData ({ $axios, route}) {
@@ -28,7 +40,12 @@ export default {
         sid: route.params.id
       }}).then(res=>{
         if (res.data.code == 200) {
-          return {detailData: res.data.result}
+          return {
+              detailData: res.data.result,
+              title: '分享快乐' + res.data.result.text,
+              keywords: '分享快乐_' + res.data.result.text,
+              desc: '分享快乐_' + res.data.result.text + res.data.result.name
+            }
         }
       })
   }
